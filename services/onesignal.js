@@ -14,7 +14,12 @@ export const sendPushNotification = async ({
     headings: { en: title },
     contents: { en: message },
     data,
-    filters:[{field:'tag',key:'interval',relation:'=',value:'70'}]
+     filters: [
+      { field: "tag", key: "start", relation: "=", value: String(11) },
+      { operator: "AND" },
+      { field: "tag", key: "interval", relation: "=", value: String(60) }
+    ]
+    // filters:[{field:'tag',key:'interval',relation:'=',value:'70'}]
   };
 
   if (url) payload.url = url;
@@ -47,7 +52,7 @@ export const sendPushByTags = async ({
     headings: { en: title },
     contents: { en: message },
     filters: [
-      { field: "tag", key: "start_hour", relation: "=", value: String(startHour) },
+      { field: "tag", key: "start", relation: "=", value: String(startHour) },
       { operator: "AND" },
       { field: "tag", key: "interval", relation: "=", value: String(interval) }
     ]

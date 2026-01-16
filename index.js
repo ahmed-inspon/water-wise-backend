@@ -64,7 +64,7 @@ cron.schedule("*/15 * * * *", async () => {
     for (let startHour = 0; startHour <= utcHour; startHour++) {
       const startMinutes = startHour * 60;
       const diff = nowMinutes - startMinutes;
-
+      console.log("diff",diff);
       if (diff < 0) continue;
 
       // interval match
